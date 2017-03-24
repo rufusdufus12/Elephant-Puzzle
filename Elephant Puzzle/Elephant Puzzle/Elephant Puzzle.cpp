@@ -5,6 +5,7 @@
 
 using namespace std;
 
+int c = 1;
 // have the elephant turn
 vector<char> turn(vector<char> a, int tPos) {
 	if (a[tPos] == 'h') {
@@ -14,7 +15,7 @@ vector<char> turn(vector<char> a, int tPos) {
 		a[tPos] = 'h';
 	}
 
-	cout << "Turn." << endl;
+	cout << c++ << ". Turn." << endl;
 	return a;
 }
 
@@ -22,7 +23,7 @@ vector<char> turn(vector<char> a, int tPos) {
 vector<char> slideRight(vector<char> a, int tPos) {
 	vector<char>::iterator it = a.begin();
 	if (a[tPos + 1] != 'v') {
-		cout << "Slide right." << endl;
+		cout << c++ << ". Slide right." << endl;
 		a.insert(it, ' ');
 		return slideRight(a, tPos);
 	}
@@ -36,7 +37,7 @@ vector<char> slideRight(vector<char> a, int tPos) {
 vector<char> slideLeft(vector<char> a, int tPos) {
 	vector<char>::iterator it = a.begin();
 	if (a[0] == ' ') {
-		cout << "Slide left." << endl;
+		cout << c++ << ". Slide left." << endl;
 		a.erase(it);
 		return slideLeft(a, tPos);
 	}
