@@ -6,6 +6,7 @@
 using namespace std;
 
 int c = 1;
+int d = 0;
 // have the elephant turn
 vector<char> turn(vector<char> a, int tPos) {
 	if (a[tPos] == 'h') {
@@ -15,6 +16,7 @@ vector<char> turn(vector<char> a, int tPos) {
 		a[tPos] = 'h';
 	}
 
+	d++;
 	cout << c++ << ". Turn." << endl;
 	return a;
 }
@@ -49,14 +51,18 @@ vector<char> slideLeft(vector<char> a, int tPos) {
 
 vector<char> move(vector<char> a, int tPos, vector<char> correct) {	
 	if (a == correct) {
-		cout << "The elephants are all lined up!" << endl;
+		cout << "The elephants are all lined up!\n" << endl;
+		cout << "There are a total of " << c << " moves." << endl;
+		cout << "If you consider sliding all elephants to one side as a single move, there are " << d << " moves." << endl;
 		return a;
 	}
 	else if (a[0] != ' ') {
+		d++;
 		a = slideRight(a, tPos);
 		return move(a, tPos, correct);
 	}
 	else {
+		d++;
 		a = slideLeft(a, tPos);
 		return move(a, tPos, correct);
 	}
